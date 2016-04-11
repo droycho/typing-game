@@ -14,30 +14,39 @@ var levelArrays = [level1,level2,level3,level4];
 
 //user
 $(document).ready(function(){
-
   var arrayNum = 0;
   var wordNum = 0;
 
-  var nextWord = (function(){ ///switches to next word in the array that it's currently in.
+  $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
+
+  var nextWord = (function(){ ///adds 1 to wordNum.
     wordNum ++;
-  $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
+    $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
   });
 
-  var nextArray = (function(){ ///switches to next array in levelArrays.
+  var nextArray = (function(){ ///adds 1 to arrayNum.
     arrayNum ++;
-  $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
+    $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
   });
-
-  $("#arrayTarget").text(levelArrays[0][0]); ///initial word.
 
   $("form").submit(function(event){
     event.preventDefault();
+
     var userInput = $("input#playerInput").val();
-    if (levelArrays[arrayNum][wordNum] === userInput){
+
+    if (levelArrays[arrayNum][wordNum] === userInput){ ///moves to next word in level
     nextWord();
     $("input#playerInput").val("");
     } else {
     $("input#playerInput").val("");
     }
+
+    if (levelArrays[arrayNum][4] === userInput){ ///moves to next array in levelArrays
+    nextArray();
+    wordNum = 0;
+    }
+
+    console.log(wordNum);
+    console.log(arrayNum)
   });
 });
