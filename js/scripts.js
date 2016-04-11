@@ -3,10 +3,7 @@ var level1 = ["one","two","three","four","five"];
 var level2 = ["butter","cable","jingle","happy","water"];
 var level3 = ["beautiful","gasoline","potato","yesterday","magazine"];
 var level4 = ["photography","questionable","fundamental","caterpillar","alligator"];
-
 var levelArrays = [level1,level2,level3,level4];
-
-// var arrayWords = ["one","two","three","four","five"];
 //time
 
 
@@ -31,7 +28,7 @@ $(document).ready(function(){
   $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
   });
 
-  $("#arrayTarget").text(levelArrays[0][0]);
+  $("#arrayTarget").text(levelArrays[0][0]); ///initial word.
 
   $("form").submit(function(event){
     event.preventDefault();
