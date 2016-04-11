@@ -5,16 +5,30 @@
 
 
 
+
+
 //user
 $(document).ready(function(){
-    // function displayWord
-  $("form").submit(function(event){
-    event.preventDefault();
-    var userInput = $("input#playerInput").val();
+  var num = 0;
+  var nextWord = (function(){
+    num ++;
+    $("#arrayTarget").text(arrayWords[num]);
+  })
 
+  $("#arrayTarget").text(arrayWords[0]);
+  // nextWord();
+  // console.log(nextWord());
 
-    // check accuracy of wordDisplay and wordInput (return true or false)
-    // if true output new word (displayWord) and reset form
+    $("form").submit(function(event){
+      event.preventDefault();
+      var userInput = $("input#playerInput").val();
+      if (arrayWords[num] === userInput){
+      nextWord();
+      $("input#playerInput").val("");
+    } else {
+      $("input#playerInput").val("");
+    }
+
     // if false reset form
   });
-})
+});
