@@ -1,9 +1,12 @@
 // business
-var level1 = ["one","two","three","four","five"];
-var level2 = ["butter","cable","jingle","happy","water"];
-var level3 = ["beautiful","gasoline","potato","yesterday","magazine"];
-var level4 = ["photography","questionable","fundamental","caterpillar","alligator"];
-var levelArrays = [level1,level2,level3,level4];
+var level1 = ["cuff", "dog", "coat", "cash", "cake", "dough", "duck", "dodge", "check", "phone", "freak", "fridge", "gauge", "ghost", "glove", "gown", "hunt", "hive", "hose", "lick", "list", "knight", "lawn", "neck", "nest", "make", "rake", "said", "rot", "rage"];
+var level2 = ["butter","cable","jingle","happy","water", "acquired", "again", "alleged", "billion", "bible", "danger", "discuss", "forceps", "photo", "police", "lumber", "kitten", "cycle", "daring", "evil", "enter", "teacher", "purple", "yellow", "gallop", "zebra", "narrow", "dinner", "little", "drama"];
+var level3 = ["beautiful","gasoline","potato","yesterday","magazine", "artfully", "decided", "however", "journalist", "knowingly", "syllable", "follower", "evergreen", "opening", "elephant", "understand", "finishing", "exercise", "lemonade", "hibernate", "customer", "envelope", "forgetful", "energy", "hamburger", "protection", "confusion", "collection", "condition", "migration"];
+var level4 = ["photography","questionable","fundamental","caterpillar","alligator", "numerator", "ordinary", "photography", "delightfully", "questionable", "evaporate", "responsible", "fundamental", "scientific", "geography", "territory", "helicopter", "ukulele", "invisible", "variation", "jubilation", "watermelon", "literature", "minority", "zoology", "altogether", "misunderstand", "dictionary", "underwater", "motorcycle"];
+var level5 = ["hippopotamus", "university", "abbreviation", "acceleration", "alphabetical", "planetarium", "organization", "congratulations", "mathematical", "multiplication", "imagination", "vegetarian", "refrigerator", "veterinarian", "cafeteria", "geometrical", "auditorium", "recommendation", "incriminating", "reconciliation", "denominator", "irresistable", "reconsideration", "verification", "vocabulary", "elementary", "respiratory", "rationality", "necessarily", "reciprocity"]
+var level6 = ["authoritarian", "availability", "barotraumatical", "biogeographic", "characteristically", "circumnavigation", "dermatological", "differentiation", "disambiguation", "disappreciated", "electrification", "etymological", "experimentally", "familiarity", "galvanization", "icthyological", "incomprehensible", "indistinguishable", "individualistic", "insubordination", "irritability", "naturalization", "peculiarity", "perpendicularly", "prestidigitation", "serendipitously", "sesquicentennial", "solidification", "unexceptionable", "verisimilitude"]
+var level7 = ["anachronistically", "artificiality", "autobiographical", "conceptualization", "contradictoriously", "decriminalization", "denominationally", "deuterocanonical", "disproportionality", "editorializing", "encyclopediacal", "heterogeneity", "hyaloserositis", "infinitesimally", "intercolonization", "interpenetratingly", "intersectionalism", "irrefutability", "jurisprudentially", "megalomaniacal", "metapragmatically", "multijurisdictional", "necrobestiality", "oversimplification", "proletarianism", "unemotionality", "uncommunicativeness", "subfunctionalization", "semiquantitatively", "sentimentalization"]
+var levelArrays = [level1,level2,level3,level4,level5,level6,level7];
 //time
 
 var timer = function(time){ // timer code line //
