@@ -34,6 +34,7 @@ var score = 0;
 
 // user logic
 $(document).ready(function(){
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
     var audio = new Audio('sound/loop.wav');
@@ -41,6 +42,11 @@ $(document).ready(function(){
     audio.play();
 >>>>>>> Stashed changes
 
+=======
+    var audio = new Audio('sound/loop.wav');
+    audio.play();
+    audio.loop
+>>>>>>> master
     var arrayNum = 0;
     $("#score").text(score)
     $("#timer").text(30)
@@ -57,9 +63,6 @@ $(document).ready(function(){
 
     var wordNum = wordRandomize(); // randomize the word
     var wordCount = 0;
-
-    $("#playButton").click(function(){
-      timer(30);
 
 
   $("#playButton").click(function(){
@@ -115,5 +118,4 @@ $(document).ready(function(){
 
     });
   });
-});
 });
