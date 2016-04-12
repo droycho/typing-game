@@ -69,6 +69,7 @@ $(document).ready(function(){
 
       var userInput = $("input#playerInput").val();
 
+      //adds and subtracts to score.
       if (levelArrays[arrayNum][wordNum] === userInput){
        score += parseInt(levelArrays[arrayNum][wordNum].length);
        $("#score").text(score);
