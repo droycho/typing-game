@@ -1,3 +1,29 @@
 .button{
   display: none;
 }
+#arrayTarget{
+
+}
+.jumbotron{
+  margin-top: 0px;
+  text-align: center;
+  margin-bottom: 0px;
+}
+#playerInput{
+  border: 0px;
+  border-top: 0px;
+}
+label{
+  font-size: 25px;
+}
+.TimeTag{
+  text-align: center;
+  color: red;
+}
+.LevelTag{
+  float: right;
+  color: green;
+}
+.ScoreTag{
+  color: #f2d044;
+}

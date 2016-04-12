@@ -7,6 +7,7 @@ var level5 = ["hippopotamus", "university", "abbreviation", "acceleration", "alp
 var level6 = ["authoritarian", "availability", "barotraumatical", "biogeographic", "characteristically", "circumnavigation", "dermatological", "differentiation", "disambiguation", "disappreciated", "electrification", "etymological", "experimentally", "familiarity", "galvanization", "icthyological", "incomprehensible", "indistinguishable", "individualistic", "insubordination", "irritability", "naturalization", "peculiarity", "perpendicularly", "prestidigitation", "serendipitously", "sesquicentennial", "solidification", "unexceptionable", "verisimilitude"]
 var level7 = ["anachronistically", "artificiality", "autobiographical", "conceptualization", "contradictoriously", "decriminalization", "denominationally", "deuterocanonical", "disproportionality", "editorializing", "encyclopediacal", "heterogeneity", "hyaloserositis", "infinitesimally", "intercolonization", "interpenetratingly", "intersectionalism", "irrefutability", "jurisprudentially", "megalomaniacal", "metapragmatically", "multijurisdictional", "necrobestiality", "oversimplification", "proletarianism", "unemotionality", "uncommunicativeness", "subfunctionalization", "semiquantitatively", "sentimentalization"]
 var levelArrays = [level1,level2,level3,level4,level5,level6,level7];
+var levelNames = ["level 1","level 2","level 3","level 4","level 5","level 6","level 7"]
 //time
 
 var timer = function(time){
@@ -14,7 +15,6 @@ var timer = function(time){
     if (time <= 0) {
       $("#timer").text("");
       alert("Game Over");
-      console.log("we are before clear interval");
       clearInterval(timeInterval);
     } else {
       $("#timer").text(time);
@@ -22,10 +22,9 @@ var timer = function(time){
     }
   } , 1000);
 }
-// user logic
 
+// user logic
 $(document).ready(function(){
-// timer click function
 
     var arrayNum = 0;
 
@@ -33,12 +32,17 @@ $(document).ready(function(){
       return Math.floor((Math.random() * levelArrays[arrayNum].length));
     };
 
+    var showLevel = (function(){
+      $("#level").text(levelNames[arrayNum])
+    })
+
+    showLevel();
+
     var wordNum = wordRandomize(); // randomize the word
     var wordCount =0;
 
     $("#playButton").click(function(){
       timer(30);
-
 
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
 
@@ -46,7 +50,7 @@ $(document).ready(function(){
        wordNum = wordRandomize();
 
        wordCount ++;
-       console.log(wordCount);
+
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
     });
 
@@ -72,8 +76,8 @@ $(document).ready(function(){
       nextArray();
       }
 
-      // console.log(wordNum);
-      // console.log(arrayNum)
+      showLevel();
+
     });
   });
 });

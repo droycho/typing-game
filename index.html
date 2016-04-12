@@ -9,24 +9,56 @@
     <title></title>
   </head>
     <body>
-      <div id="computerOutput">
-        <label>Type this word:</label>
-        <p><span id="arrayTarget"></span></p>
-        <p><span id="timer"></span></p>
-      </div>
-        <br>
-        <br>
 
-        <form id="playerInputForm">
-          <div class="form-group">
-            <label>Type word as shown:
-              <input id="playerInput" type="text" class="form-control" placeholder="Type word here">
-            </label>
+      <h1 class = "jumbotron">Typing Game</h1>
+      <div class ="container">
+        <!-- hub of level, score and time -->
+        <div class = "row">
+          <div class = "col-xs-4">
+            <h5 class = "LevelTag">Level: <span id="level"></span></h5>
           </div>
-          <div class = "button">
-          <button type="submit" class="btn btn-default">Submit</button>
+          <div class = "col-xs-4">
+            <h5 class = "TimeTag">Time: <span id="timer"></span></h5>
           </div>
-        </form>
-        <button type="button" class="btn btn-primary" id="playButton">Play</button> <!-- timer code line -->
-    </body>
+          <div class = "col-xs-4">
+            <h5 class = "ScoreTag">Score: <span id="score"></span></h5>
+          </div>
+
+        <div class = "row">
+          <div class = "col-md-10">
+            <!-- Word Output-->
+            <div id="computerOutput">
+              <label>Type this word:</label>
+              <p><span id="arrayTarget"></span></p>
+            </div>
+          </div>
+        </div>
+
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+
+        <!-- Users Input -->
+        <div class = "row">
+          <div class = "col-md-10">
+            <form id="playerInputForm">
+              <div class="form-group">
+                <label>Type word as shown:
+                  <input id="playerInput" type="text" class="form-control" placeholder="words">
+                </label>
+              </div>
+              <div class = "button">
+              <button type="submit" class="btn btn-default">Submit</button>
+              </div>
+
+            <!-- Timer button -->
+            </form>
+          <center><button type="button" class="btn btn-primary" id="playButton">Play</button></center> <!-- timer code line -->
+        </div>
+      </div>
+
+    </div>
+  </body>
 </html>
