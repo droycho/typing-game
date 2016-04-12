@@ -9,13 +9,18 @@ var level7 = ["anachronistically", "artificiality", "autobiographical", "concept
 var levelArrays = [level1,level2,level3,level4,level5,level6,level7];
 var levelNames = ["level 1","level 2","level 3","level 4","level 5","level 6","level 7"]
 //time
-
+var wordCount =0;
+var newTimer =0;
 var timer = function(time){
   var timeInterval = setInterval(function(){
-    if (time <= 0) {
+    if (time <= 0 ) {
       $("#timer").text("");
       alert("Game Over");
       clearInterval(timeInterval);
+    } else if (newTimer === 5) {
+      newTimer =0;
+      clearInterval(timeInterval);
+
     } else {
       $("#timer").text(time);
       time = time - 1;
@@ -26,31 +31,30 @@ var timer = function(time){
 // user logic
 $(document).ready(function(){
 
-    var arrayNum = 0;
+  var arrayNum = 0;
 
-    var wordRandomize = function(){
-      return Math.floor((Math.random() * levelArrays[arrayNum].length));
-    };
+  var wordRandomize = function(){
+    return Math.floor((Math.random() * levelArrays[arrayNum].length));
+  };
 
-    var showLevel = (function(){
-      $("#level").text(levelNames[arrayNum])
-    })
+  var showLevel = (function(){
+    $("#level").text(levelNames[arrayNum])
+  })
 
-    showLevel();
+  showLevel();
 
-    var wordNum = wordRandomize(); // randomize the word
-    var wordCount =0;
+  var wordNum = wordRandomize(); // randomize the word
 
-    $("#playButton").click(function(){
-      timer(30);
 
+  $("#playButton").click(function(){
+    timer(30);
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
 
     var nextWord = (function(){ ///adds 1 to wordNum.
-       wordNum = wordRandomize();
-
-       wordCount ++;
-
+      levelArrays[arrayNum].splice(wordNum,1);
+      wordNum = wordRandomize();
+      wordCount ++;
+      newTimer ++;
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
     });
 
@@ -65,15 +69,16 @@ $(document).ready(function(){
       var userInput = $("input#playerInput").val();
 
       if (levelArrays[arrayNum][wordNum] === userInput){ ///moves to next word in level
-      nextWord();
-      $("input#playerInput").val("");
-      } else {
-      $("input#playerInput").val("");
+        nextWord();
+        $("input#playerInput").val("");
+        } else {
+        $("input#playerInput").val("");
       }
 
       if (wordCount === 5){ ///moves to next array in levelArrays // we changed it in a new condition
-      wordCount= 0;
-      nextArray();
+        timer(30);
+        wordCount= 0;
+        nextArray();
       }
 
       showLevel();
