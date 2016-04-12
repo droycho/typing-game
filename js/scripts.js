@@ -4,6 +4,7 @@ var level2 = ["butter","cable","jingle","happy","water"];
 var level3 = ["beautiful","gasoline","potato","yesterday","magazine"];
 var level4 = ["photography","questionable","fundamental","caterpillar","alligator"];
 var levelArrays = [level1,level2,level3,level4];
+var levelNames = ["level 1","level 2","level 3","level 4","level 5","level 6","level 7"]
 //time
 
 var timer = function(time){ // timer code line //
@@ -20,7 +21,6 @@ var timer = function(time){ // timer code line //
   } , 1000); // timer code line //
 } // timer code line //
 
-
 // user logic
 
 
@@ -29,6 +29,12 @@ $(document).ready(function(){
 
     var arrayNum = 0;
     var wordNum = 0;
+
+    var showLevel = (function(){
+      $("#level").text(levelNames[arrayNum])
+    })
+
+    showLevel();
 
     $("#playButton").click(function(){ // timer code line //
       timer(30); // timer code line //
@@ -65,6 +71,7 @@ $(document).ready(function(){
 
       console.log(wordNum);
       console.log(arrayNum)
+      showLevel();
 
     });
   });
