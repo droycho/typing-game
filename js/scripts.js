@@ -43,7 +43,7 @@ $(document).ready(function(){
     var wordCount =0;
 
     $("#playButton").click(function(){
-      timer(50);
+      timer(2);
 
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
 
