@@ -11,7 +11,7 @@
     <body>
 
       <h1 class = "jumbotron">Typing Game</h1>
-      <div class ="container">
+      <div class ="container" id="gameContent">
         <!-- hub of level, score and time -->
         <div class = "row">
           <div class = "col-xs-4">
@@ -23,7 +23,7 @@
           <div class = "col-xs-4">
             <h5 class = "ScoreTag">Score: <span id="score"></span></h5>
           </div>
-
+        </div>
         <div class = "row">
           <div class = "col-md-10">
             <!-- Word Output-->
@@ -55,11 +55,15 @@
 
             <!-- Timer button -->
             </form>
-          <center><button type="button" class="btn btn-primary" id="playButton">Play</button></center> <!-- timer code line -->
+            <center><button type="button" class="btn btn-primary" id="playButton">Play</button></center> <!-- timer code line -->
+          </div>
         </div>
       </div>
-
-    </div>
-  </div>  
-  </body>
+      <div class="container" id="gameOver">
+        <p><img src="img/youlose.jpeg" class="stretch" alt="You Lose, Try Again."/></p>
+        <form id="refreshButton">
+          <input type="button" onClick="history.go(0)" value="Play Again">
+        </form>
+      </div>
+    </body>
 </html>

@@ -14,7 +14,8 @@ var timer = function(time){
   var timeInterval = setInterval(function(){
     if (time <= 0) {
       $("#timer").text("");
-      alert("Game Over");
+      $("#gameContent").hide();
+      $("#gameOver").show();
       clearInterval(timeInterval);
     } else {
       $("#timer").text(time);
@@ -42,7 +43,7 @@ $(document).ready(function(){
     var wordCount =0;
 
     $("#playButton").click(function(){
-      timer(30);
+      timer(50);
 
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
 
