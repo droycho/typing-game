@@ -1,7 +1,5 @@
-// business
+// business logic
   var arrayWords = ["one","two","three","four","five","six","seven","eight","nine","ten" ]
-  //time
-  //
 
 
 
@@ -10,17 +8,15 @@
 
 
 
-// var timer = function(time){ // timer code line //
-//   setTimeout(function(){ alert("Game Over"); }, time) // timer code line //
-// }
+
 
 var timer = function(time){ // timer code line //
-  var timeinterval = setInterval(function(){ // timer code line //
+  var timeInterval = setInterval(function(){ // timer code line //
     if (time <= 0) { // timer code line //
       $("#timer").text(""); // timer code line //
       alert("Game Over"); // timer code line //
       console.log("we are before clear interval"); // timer code line //
-      clearInterval(timeinterval); // timer code line //
+      clearInterval(timeInterval); // timer code line //
     } else { // timer code line //
       $("#timer").text(time); // timer code line //
       time = time - 1; // timer code line //
@@ -29,12 +25,12 @@ var timer = function(time){ // timer code line //
 } // timer code line //
 
 
-//user
+// user logic
 
 
 $(document).ready(function(){
   $("#playButton").click(function(){ // timer code line //
-    timer(10); // timer code line //
+    timer(15); // timer code line //
   }); // timer code line //
 
   var num = 0;
@@ -44,8 +40,7 @@ $(document).ready(function(){
   })
 
   $("#arrayTarget").text(arrayWords[0]);
-  // nextWord();
-  // console.log(nextWord());
+
 
     $("form").submit(function(event){
       event.preventDefault();
@@ -57,6 +52,5 @@ $(document).ready(function(){
       $("input#playerInput").val("");
     }
 
-    // if false reset form
   });
 });
