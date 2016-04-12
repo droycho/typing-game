@@ -52,9 +52,9 @@ $(document).ready(function(){
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
 
     var nextWord = (function(){ ///adds 1 to wordNum.
-       wordNum = wordRandomize();
+      wordNum = wordRandomize();
 
-       wordCount ++;
+      wordCount ++;
 
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
     });
@@ -71,6 +71,9 @@ $(document).ready(function(){
 
       if (levelArrays[arrayNum][wordNum] === userInput){
        score += parseInt(levelArrays[arrayNum][wordNum].length);
+       $("#score").text(score);
+     } else if (levelArrays[arrayNum][wordNum] !== userInput) {
+       score -= parseInt(levelArrays[arrayNum][wordNum].length);
        $("#score").text(score);
       }
 
