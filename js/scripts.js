@@ -29,10 +29,15 @@ var timer = function(time){
   } , 1000);
 }
 
+//score system
+var score = 0;
+
 // user logic
 $(document).ready(function(){
 
-  var arrayNum = 0;
+    var arrayNum = 0;
+    $("#score").text(score)
+    $("#timer").text(30)
 
   var wordRandomize = function(){
     return Math.floor((Math.random() * levelArrays[arrayNum].length));
@@ -44,17 +49,24 @@ $(document).ready(function(){
 
   showLevel();
 
-  var wordNum = wordRandomize(); // randomize the word
+    var wordNum = wordRandomize(); // randomize the word
+    var wordCount = 0;
+
+    $("#playButton").click(function(){
+      timer(30);
+
 
   $("#playButton").click(function(){
     timer(30);
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
 
     var nextWord = (function(){ ///adds 1 to wordNum.
+
       levelArrays[arrayNum].splice(wordNum,1);
       wordNum = wordRandomize();
       wordCount ++;
       newTimer ++;
+
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
     });
 
@@ -67,6 +79,18 @@ $(document).ready(function(){
       event.preventDefault();
 
       var userInput = $("input#playerInput").val();
+
+      //adds and subtracts to score.
+      if (levelArrays[arrayNum][wordNum] === userInput){
+       score += parseInt(levelArrays[arrayNum][wordNum].length);
+       $("#score").text(score);
+     } else if (levelArrays[arrayNum][wordNum] !== userInput) {
+       score -= parseInt(levelArrays[arrayNum][wordNum].length);
+       $("#score").text(score);
+      }
+
+      console.log(userInput)
+      console.log(score)
 
       if (levelArrays[arrayNum][wordNum] === userInput){ ///moves to next word in level
         nextWord();
@@ -85,4 +109,5 @@ $(document).ready(function(){
 
     });
   });
+});
 });

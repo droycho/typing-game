@@ -2,7 +2,8 @@
   display: none;
 }
 #arrayTarget{
-
+font-size: 25px;
+text-align: center;
 }
 .jumbotron{
   margin-top: 0px;
