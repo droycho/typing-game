@@ -8,11 +8,32 @@ var level6 = ["authoritarian", "availability", "barotraumatical", "biogeographic
 var level7 = ["anachronistically", "artificiality", "autobiographical", "conceptualization", "contradictoriously", "decriminalization", "denominationally", "deuterocanonical", "disproportionality", "editorializing", "encyclopediacal", "heterogeneity", "hyaloserositis", "infinitesimally", "intercolonization", "interpenetratingly", "intersectionalism", "irrefutability", "jurisprudentially", "megalomaniacal", "metapragmatically", "multijurisdictional", "necrobestiality", "oversimplification", "proletarianism", "unemotionality", "uncommunicativeness", "subfunctionalization", "semiquantitatively", "sentimentalization"]
 var levelArrays = [level1,level2,level3,level4,level5,level6,level7];
 var levelNames = ["level 1","level 2","level 3","level 4","level 5","level 6","level 7"]
+
 //time
 var wordCount =0;
 var newTimer =0;
 var timer = function(time){
   var timeInterval = setInterval(function(){
+    if (time < 20 && time > 15){
+      $("body").removeClass();
+      $("body").fadeIn().addClass("bgChange");
+    } else if (time < 15 && time > 10){
+      $("body").removeClass();
+      $("body").fadeIn().addClass("bgChange2");
+    } else if (time < 10 && time > 5){
+      $("body").removeClass();
+      $("body").fadeIn().addClass("bgChange3");
+    } else if (time < 5 && time > 0){
+      $("body").removeClass();
+      $("body").fadeIn().addClass("bgChange4");
+    } else if (time < 30 && time > 20){
+      $("body").removeClass();
+      $("body").fadeIn().addClass("bgChange5");
+    } else if (time === 0){
+      $("body").removeClass();
+      $("body").fadeIn().addClass("bgChange6");
+    }
+
     if (time <= 0 ) {
       $("#timer").text("");
       $("#gameContent").hide();
@@ -29,44 +50,35 @@ var timer = function(time){
   } , 1000);
 }
 
-//score system
-var score = 0;
-
 // user logic
 $(document).ready(function(){
-
-    var arrayNum = 0;
-    $("#score").text(score)
-    $("#timer").text(30)
+  var score = 0
+  var wordCount = 0;
+  var arrayNum = 0;
+  $("#score").text(score)
+  $("#timer").text(30)
 
   var wordRandomize = function(){
     return Math.floor((Math.random() * levelArrays[arrayNum].length));
   };
 
-  var showLevel = (function(){
+  var showLevel = function(){
     $("#level").text(levelNames[arrayNum])
-  })
+  };
 
-  showLevel();
+  showLevel(); //show initial Level
 
-    var wordNum = wordRandomize(); // randomize the word
-    var wordCount = 0;
-
-    $("#playButton").click(function(){
-      timer(30);
+  var wordNum = wordRandomize(); // randomize the word
 
 
   $("#playButton").click(function(){
     timer(30);
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
-
     var nextWord = (function(){ ///adds 1 to wordNum.
-
       levelArrays[arrayNum].splice(wordNum,1);
       wordNum = wordRandomize();
       wordCount ++;
       newTimer ++;
-
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
     });
 
@@ -79,7 +91,6 @@ $(document).ready(function(){
       event.preventDefault();
 
       var userInput = $("input#playerInput").val();
-
       //adds and subtracts to score.
       if (levelArrays[arrayNum][wordNum] === userInput){
        score += parseInt(levelArrays[arrayNum][wordNum].length);
@@ -88,9 +99,6 @@ $(document).ready(function(){
        score -= parseInt(levelArrays[arrayNum][wordNum].length);
        $("#score").text(score);
       }
-
-      console.log(userInput)
-      console.log(score)
 
       if (levelArrays[arrayNum][wordNum] === userInput){ ///moves to next word in level
         nextWord();
@@ -109,5 +117,4 @@ $(document).ready(function(){
 
     });
   });
-});
 });
