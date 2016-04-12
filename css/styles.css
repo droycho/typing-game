@@ -1,5 +1,7 @@
 body {
   font-family: 'Press Start 2P';
+  background: url("../img/background.png") no-repeat center center fixed;
+  background-size: cover;
 }
 label{
   font-size: 25px;
@@ -26,7 +28,7 @@ label{
 }
 
 #gameContent {
-  /*display: none;*/
+
 }
 #arrayTarget{
 font-size: 25px;
