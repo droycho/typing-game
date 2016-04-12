@@ -6,47 +6,66 @@ var level4 = ["photography","questionable","fundamental","caterpillar","alligato
 var levelArrays = [level1,level2,level3,level4];
 //time
 
+var timer = function(time){ // timer code line //
+  var timeInterval = setInterval(function(){ // timer code line //
+    if (time <= 0) { // timer code line //
+      $("#timer").text(""); // timer code line //
+      alert("Game Over"); // timer code line //
+      console.log("we are before clear interval"); // timer code line //
+      clearInterval(timeInterval); // timer code line //
+    } else { // timer code line //
+      $("#timer").text(time); // timer code line //
+      time = time - 1; // timer code line //
+    } // timer code line //
+  } , 1000); // timer code line //
+} // timer code line //
 
 
+// user logic
 
 
-
-
-//user
 $(document).ready(function(){
-  var arrayNum = 0;
-  var wordNum = 0;
+// timer click function
 
-  $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
+    var arrayNum = 0;
+    var wordNum = 0;
 
-  var nextWord = (function(){ ///adds 1 to wordNum.
-    wordNum ++;
-    $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
-  });
+    $("#playButton").click(function(){ // timer code line //
+      timer(30); // timer code line //
+     // timer code line //
 
-  var nextArray = (function(){ ///adds 1 to arrayNum.
-    arrayNum ++;
-    $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
-  });
+    $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
 
-  $("form").submit(function(event){
-    event.preventDefault();
+    var nextWord = (function(){ ///adds 1 to wordNum.
+      wordNum ++;
+      $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
+    });
 
-    var userInput = $("input#playerInput").val();
+    var nextArray = (function(){ ///adds 1 to arrayNum.
+      arrayNum ++;
+      $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
+    });
 
-    if (levelArrays[arrayNum][wordNum] === userInput){ ///moves to next word in level
-    nextWord();
-    $("input#playerInput").val("");
-    } else {
-    $("input#playerInput").val("");
-    }
+    $("form").submit(function(event){
+      event.preventDefault();
 
-    if (levelArrays[arrayNum][4] === userInput){ ///moves to next array in levelArrays
+      var userInput = $("input#playerInput").val();
+
+      if (levelArrays[arrayNum][wordNum] === userInput){ ///moves to next word in level
+      nextWord();
+      $("input#playerInput").val("");
+      } else {
+      $("input#playerInput").val("");
+      }
+
+      if (levelArrays[arrayNum][4] === userInput){ ///moves to next array in levelArrays
       wordNum = 0;
       nextArray();
-    }
+      }
 
-    console.log(wordNum);
-    console.log(arrayNum)
+      console.log(wordNum);
+      console.log(arrayNum)
+
+    });
   });
 });
