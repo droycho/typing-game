@@ -34,6 +34,12 @@ var score = 0;
 
 // user logic
 $(document).ready(function(){
+<<<<<<< Updated upstream
+=======
+    var audio = new Audio('sound/loop.wav');
+    audio.loop = true;
+    audio.play();
+>>>>>>> Stashed changes
 
     var arrayNum = 0;
     $("#score").text(score)
