@@ -42,8 +42,8 @@ $(document).ready(function(){
     }
 
     if (levelArrays[arrayNum][4] === userInput){ ///moves to next array in levelArrays
-    nextArray();
-    wordNum = 0;
+      wordNum = 0;
+      nextArray();
     }
 
     console.log(wordNum);
