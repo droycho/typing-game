@@ -52,3 +52,6 @@ text-align: center;
 #refreshButton {
   font-size: 40px;
 }
+#startOverButton {
+  display: none;
+}

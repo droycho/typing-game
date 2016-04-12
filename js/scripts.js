@@ -55,6 +55,7 @@ $(document).ready(function(){
   $("#playButton").click(function(){
     timer(30);
     $("#playButton").hide();
+    $("#startOverButton").show();
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
 
     var nextWord = (function(){ ///adds 1 to wordNum.
