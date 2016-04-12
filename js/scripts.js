@@ -34,7 +34,9 @@ var score = 0;
 
 // user logic
 $(document).ready(function(){
-
+    var audio = new Audio('sound/loop.wav');
+    audio.play();
+    audio.loop
     var arrayNum = 0;
     $("#score").text(score)
     $("#timer").text(30)
@@ -51,9 +53,6 @@ $(document).ready(function(){
 
     var wordNum = wordRandomize(); // randomize the word
     var wordCount = 0;
-
-    $("#playButton").click(function(){
-      timer(30);
 
 
   $("#playButton").click(function(){
@@ -109,5 +108,4 @@ $(document).ready(function(){
 
     });
   });
-});
 });
