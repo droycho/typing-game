@@ -18,36 +18,48 @@ var endsong = new Audio('sound/endsong.mp3');
 var gong = new Audio('sound/gong.mp3');
 
 //time
-var wordCount =0;
-var newTimer =0;
+var wordCount = 0;
+var newTimer = 0;
 var mode = "standardMode";
 var timer = function(time){
 var timeInterval = setInterval(function(){
 
-  if (time >= 250){
+  if (time >= 300){
       audio.playbackRate = 1;
     }
-    else if (time <100){
-        audio.playbackRate = 1.5;
+    else if (time <250){
+        audio.playbackRate = 1.2;
       }
+      else if (time <200){
+          audio.playbackRate = 1.5;
+        }
+        else if (time <150){
+            audio.playbackRate = 1.7;
+          }
+          else if (time <100){
+              audio.playbackRate = 2.0;
+            }
+            else if (time <50){
+                audio.playbackRate = 2.5;
+              }
 
     // background change on timer
-    if (time < 30 && time > 25){
+    if (time < 300 && time > 250){
       $("body").removeClass();
       $("body").addClass("bgChange");
-    } else if (time < 25 && time > 20){
+    } else if (time < 250 && time > 200){
       $("body").removeClass();
       $("body").addClass("bgChange2");
-    } else if (time < 20 && time > 15){
+    } else if (time < 200 && time > 150){
       $("body").removeClass();
       $("body").addClass("bgChange3");
-    } else if (time < 15 && time > 10){
+    } else if (time < 150 && time > 100){
       $("body").removeClass();
       $("body").addClass("bgChange4");
-    } else if (time < 10 && time > 5){
+    } else if (time < 100 && time > 50){
       $("body").removeClass();
       $("body").addClass("bgChange5");
-    } else if (time < 5 && time > 0){
+    } else if (time < 50 && time > 0){
       $("body").removeClass();
       $("body").addClass("bgChange6");
     }
@@ -83,7 +95,7 @@ $(document).ready(function(){
   var wordCount = 0;
   var arrayNum = 0;
   $("#score").text(score)
-  $("#timer").text(5)
+  $("#timer").text(30)
 
   var wordRandomize = function(){
     return Math.floor((Math.random() * levelArrays[arrayNum].length));
