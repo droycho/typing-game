@@ -92,7 +92,7 @@ var score = 0;
 $(document).ready(function(){
   var score = 0
   var wordCount = 0;
-  var arrayNum = 0;
+  var arrayNum = 6;
 
   $("#score").text(score)
   $("#timer").text(30)
@@ -102,7 +102,11 @@ $(document).ready(function(){
   };
 
   var showLevel = function(){
-    $("#level").text(levelNames[arrayNum])
+    if (mode != "infinityMode"){
+      $("#level").text(levelNames[arrayNum])
+    } else if (mode === "infinityMode") {
+      $("#level").text("Infinity Mode");
+    }
   };
 
   showLevel() //show initial Level
