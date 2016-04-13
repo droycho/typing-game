@@ -19,7 +19,7 @@ var gong = new Audio('sound/gong.mp3');
 
 //time
 var wordCount = 0;
-var arrayNum = 0;
+var arrayNum = 6;
 var newTimer = 0;
 var mode = "standardMode";
 var timer = function(time){
@@ -128,14 +128,18 @@ $(document).ready(function(){
 
     var nextWord = (function(){ ///adds 1 to wordNum.
       levelArrays[arrayNum].splice(wordNum,1);
+      if (levelArrays[arrayNum].length === 0) { // luca modified
+        levelArrays.splice(arrayNum,1) // luca modified
+        console.log(levelArrays); // luca modified
+      } // luca modified
       wordNum = wordRandomize();
       wordCount ++;
       newTimer ++;
-      console.log(level7);
 
 
       if (levelArrays[arrayNum].length === 0) {
-        console.log("you won the game");
+        $("#gameContent").hide(1000);
+        $("#victory").show(1100);
       } else if (wordCount === 5 && arrayNum === levelArrays.length - 1 || mode === "infinityMode") {
         mode = "infinityMode";
         $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
@@ -167,7 +171,8 @@ $(document).ready(function(){
        fail.play();
       }
 
-      if (levelArrays[arrayNum][wordNum] === userInput){ ///moves to next word in level
+      // if (levelArrays[arrayNum][wordNum] === userInput){ ///moves to next word in level - luca modified
+      if (8 === 8){ /// luca modified
         nextWord();
         }
       $("input#playerInput").val("");
