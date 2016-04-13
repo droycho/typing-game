@@ -43,7 +43,7 @@ text-align: center;
 #gameOver {
     display: none;
     text-align: center;
-    /*background-color: black;*/
+    transition: 0.1s ease-in;
 }
 #lose {
   font-size: 100px;
@@ -59,9 +59,3 @@ text-align: center;
 #startOverButton {
   display: none;
 }
-#playButton {
-  transition: 0.1s ease-out;
-}
-/*#startOverButton {
-  transition: 0.5s ease-in;
-}*/
