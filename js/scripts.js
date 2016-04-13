@@ -8,23 +8,43 @@ var level6 = ["authoritarian", "availability", "barotraumatical", "biogeographic
 var level7 = ["anachronistically", "artificiality", "autobiographical", "conceptualization", "contradictoriously", "decriminalization", "denominationally", "deuterocanonical", "disproportionality", "editorializing", "encyclopediacal", "heterogeneity", "hyaloserositis", "infinitesimally", "intercolonization", "interpenetratingly", "intersectionalism", "irrefutability", "jurisprudentially", "megalomaniacal", "metapragmatically", "multijurisdictional", "necrobestiality", "oversimplification", "proletarianism", "unemotionality", "uncommunicativeness", "subfunctionalization", "semiquantitatively", "sentimentalization"]
 var levelArrays = [level1,level2,level3,level4,level5,level6,level7];
 var levelNames = ["level 1","level 2","level 3","level 4","level 5","level 6","level 7"]
+//music global variables
+var audio = new Audio('sound/loop.wav');
+var fail = new Audio('sound/explosion.wav');
+var coin = new Audio('sound/coin.wav');
+var levelup = new Audio('sound/levelup.wav');
+var endsong = new Audio('sound/endsong.mp3');
+var gong = new Audio('sound/gong.mp3');
+
+//music global variables ends
 //time
 var wordCount =0;
 var newTimer =0;
 var mode = "standardMode";
 var timer = function(time){
   var timeInterval = setInterval(function(){
+
+    if (time >= 250){
+      audio.playbackRate = 1;
+    }
+    else if (time <100){
+        audio.playbackRate = 1.5;
+    }
+
     if (time <= 0 ) {
       $("#timer").text("");
       $("#gameContent").hide();
       $("#gameOver").show();
+        audio.pause();
+        gong.play();
+        endsong.play();
       clearInterval(timeInterval);
+
+
     } else if (newTimer === 5) {
-      console.log("stopped");
       newTimer = 0;
       clearInterval(timeInterval);
     } else if (newTimer === 1 && mode === "infinityMode") {
-      console.log("the condition newTimer === 1 && mode === 'infinityMode' -- has been met");
       newTimer = 0;
       clearInterval(timeInterval);
     } else {
@@ -58,14 +78,17 @@ $(document).ready(function(){
     var wordNum = wordRandomize(); // randomize the word
     var wordCount = 0;
 
+
   $("#playButton").click(function(){
     timer(300);
     $("#playButton").hide();
     $("#startOverButton").show();
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
 
+    audio.loop = true;
+    audio.play();
+
     var nextWord = (function(){ ///adds 1 to wordNum.
-      console.log("nextWord has been triggered");
       levelArrays[arrayNum].splice(wordNum,1);
       wordNum = wordRandomize();
       wordCount ++;
@@ -81,10 +104,11 @@ $(document).ready(function(){
     var nextArray = (function(){ ///adds 1 to arrayNum.
       arrayNum ++;
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
+        levelup.play();
     });
 
     $("form").submit(function(event){
-      console.log("mode is " + mode);
+
       event.preventDefault();
 
       var userInput = $("input#playerInput").val();
@@ -93,9 +117,12 @@ $(document).ready(function(){
       if (levelArrays[arrayNum][wordNum] === userInput){
        score += parseInt(levelArrays[arrayNum][wordNum].length);
        $("#score").text(score);
-      } else if (levelArrays[arrayNum][wordNum] !== userInput) {
+       coin.play();
+     } else if (levelArrays[arrayNum][wordNum] !== userInput) {
        score -= parseInt(levelArrays[arrayNum][wordNum].length);
        $("#score").text(score);
+       fail.play();
+
       }
 
       console.log(userInput)
