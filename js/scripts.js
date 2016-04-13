@@ -8,6 +8,7 @@ var level6 = ["authoritarian", "availability", "barotraumatical", "biogeographic
 var level7 = ["anachronistically", "artificiality", "autobiographical", "conceptualization", "contradictoriously", "decriminalization", "denominationally", "deuterocanonical", "disproportionality", "editorializing", "encyclopediacal", "heterogeneity", "hyaloserositis", "infinitesimally", "intercolonization", "interpenetratingly", "intersectionalism", "irrefutability", "jurisprudentially", "megalomaniacal", "metapragmatically", "multijurisdictional", "necrobestiality", "oversimplification", "proletarianism", "unemotionality", "uncommunicativeness", "subfunctionalization", "semiquantitatively", "sentimentalization"]
 var levelArrays = [level1,level2,level3,level4,level5,level6,level7];
 var levelNames = ["level 1","level 2","level 3","level 4","level 5","level 6","level 7"]
+
 //music global variables
 var audio = new Audio('sound/loop.wav');
 var fail = new Audio('sound/explosion.wav');
@@ -16,21 +17,40 @@ var levelup = new Audio('sound/levelup.wav');
 var endsong = new Audio('sound/endsong.mp3');
 var gong = new Audio('sound/gong.mp3');
 
-//music global variables ends
 //time
 var wordCount =0;
 var newTimer =0;
 var mode = "standardMode";
 var timer = function(time){
-  var timeInterval = setInterval(function(){
+var timeInterval = setInterval(function(){
 
-    if (time >= 250){
+  if (time >= 250){
       audio.playbackRate = 1;
     }
     else if (time <100){
         audio.playbackRate = 1.5;
-    }
+      }
 
+    // background change on timer
+    if (time < 30 && time > 25){
+      $("body").removeClass();
+      $("body").addClass("bgChange");
+    } else if (time < 25 && time > 20){
+      $("body").removeClass();
+      $("body").addClass("bgChange2");
+    } else if (time < 20 && time > 15){
+      $("body").removeClass();
+      $("body").addClass("bgChange3");
+    } else if (time < 15 && time > 10){
+      $("body").removeClass();
+      $("body").addClass("bgChange4");
+    } else if (time < 10 && time > 5){
+      $("body").removeClass();
+      $("body").addClass("bgChange5");
+    } else if (time < 5 && time > 0){
+      $("body").removeClass();
+      $("body").addClass("bgChange6");
+    }
     if (time <= 0 ) {
       $("#timer").text("");
       $("#gameContent").hide();
@@ -39,8 +59,6 @@ var timer = function(time){
         gong.play();
         endsong.play();
       clearInterval(timeInterval);
-
-
     } else if (newTimer === 5) {
       newTimer = 0;
       clearInterval(timeInterval);
@@ -51,8 +69,9 @@ var timer = function(time){
       $("#timer").text(Math.ceil(time / 10));
       time = time - 1;
     }
-  } , 100);
-}
+  }, 100);
+  }
+
 
 
 //score system
@@ -60,26 +79,28 @@ var score = 0;
 
 // user logic
 $(document).ready(function(){
-
-    var arrayNum = 0;
-    $("#score").text(score)
-    $("#timer").text(30)
+  var score = 0
+  var wordCount = 0;
+  var arrayNum = 0;
+  $("#score").text(score)
+  $("#timer").text(5)
 
   var wordRandomize = function(){
     return Math.floor((Math.random() * levelArrays[arrayNum].length));
   };
 
-  var showLevel = (function(){
+  var showLevel = function(){
     $("#level").text(levelNames[arrayNum])
-  })
+  };
 
-  showLevel();
+  showLevel() //show initial Level
 
-    var wordNum = wordRandomize(); // randomize the word
-    var wordCount = 0;
+  var wordNum = wordRandomize(); // randomize the word
+
 
 
   $("#playButton").click(function(){
+
     timer(300);
     $("#playButton").hide();
     $("#startOverButton").show();
@@ -93,11 +114,13 @@ $(document).ready(function(){
       wordNum = wordRandomize();
       wordCount ++;
       newTimer ++;
+
       if (wordCount === 5 && arrayNum === levelArrays.length - 1 || mode === "infinityMode") {
           mode = "infinityMode";
           $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
           timer(50);
         }
+
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
     });
 
@@ -112,7 +135,6 @@ $(document).ready(function(){
       event.preventDefault();
 
       var userInput = $("input#playerInput").val();
-
       //adds and subtracts to score.
       if (levelArrays[arrayNum][wordNum] === userInput){
        score += parseInt(levelArrays[arrayNum][wordNum].length);
@@ -122,11 +144,7 @@ $(document).ready(function(){
        score -= parseInt(levelArrays[arrayNum][wordNum].length);
        $("#score").text(score);
        fail.play();
-
       }
-
-      console.log(userInput)
-      console.log(score)
 
       if (levelArrays[arrayNum][wordNum] === userInput){ ///moves to next word in level
         nextWord();
