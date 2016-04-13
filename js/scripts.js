@@ -11,6 +11,7 @@ var levelNames = ["level 1","level 2","level 3","level 4","level 5","level 6","l
 //time
 var wordCount =0;
 var newTimer =0;
+var mode = "standardMode";
 var timer = function(time){
   var timeInterval = setInterval(function(){
     if (time <= 0 ) {
@@ -19,15 +20,20 @@ var timer = function(time){
       $("#gameOver").show();
       clearInterval(timeInterval);
     } else if (newTimer === 5) {
-      newTimer =0;
+      console.log("stopped");
+      newTimer = 0;
       clearInterval(timeInterval);
-
+    } else if (newTimer === 1 && mode === "infinityMode") {
+      console.log("the condition newTimer === 1 && mode === 'infinityMode' -- has been met");
+      newTimer = 0;
+      clearInterval(timeInterval);
     } else {
-      $("#timer").text(time);
+      $("#timer").text(Math.ceil(time / 10));
       time = time - 1;
     }
-  } , 1000);
+  } , 100);
 }
+
 
 //score system
 var score = 0;
@@ -53,18 +59,22 @@ $(document).ready(function(){
     var wordCount = 0;
 
   $("#playButton").click(function(){
-    timer(30);
+    timer(300);
     $("#playButton").hide();
     $("#startOverButton").show();
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
 
     var nextWord = (function(){ ///adds 1 to wordNum.
-
+      console.log("nextWord has been triggered");
       levelArrays[arrayNum].splice(wordNum,1);
       wordNum = wordRandomize();
       wordCount ++;
       newTimer ++;
-
+      if (wordCount === 5 && arrayNum === levelArrays.length - 1 || mode === "infinityMode") {
+          mode = "infinityMode";
+          $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
+          timer(50);
+        }
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
     });
 
@@ -74,6 +84,7 @@ $(document).ready(function(){
     });
 
     $("form").submit(function(event){
+      console.log("mode is " + mode);
       event.preventDefault();
 
       var userInput = $("input#playerInput").val();
@@ -82,7 +93,7 @@ $(document).ready(function(){
       if (levelArrays[arrayNum][wordNum] === userInput){
        score += parseInt(levelArrays[arrayNum][wordNum].length);
        $("#score").text(score);
-     } else if (levelArrays[arrayNum][wordNum] !== userInput) {
+      } else if (levelArrays[arrayNum][wordNum] !== userInput) {
        score -= parseInt(levelArrays[arrayNum][wordNum].length);
        $("#score").text(score);
       }
@@ -92,13 +103,11 @@ $(document).ready(function(){
 
       if (levelArrays[arrayNum][wordNum] === userInput){ ///moves to next word in level
         nextWord();
-        $("input#playerInput").val("");
-        } else {
-        $("input#playerInput").val("");
-      }
+        }
+      $("input#playerInput").val("");
 
-      if (wordCount === 5){ ///moves to next array in levelArrays // we changed it in a new condition
-        timer(30);
+      if (wordCount === 5 && mode === "standardMode"){ //moves to next array in levelArrays // we changed it in a new condition
+        timer(300);
         wordCount= 0;
         nextArray();
       }
