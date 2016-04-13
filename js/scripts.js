@@ -15,8 +15,8 @@ var timer = function(time){
   var timeInterval = setInterval(function(){
     if (time <= 0 ) {
       $("#timer").text("");
-      $("#gameContent").hide();
-      $("#gameOver").show();
+      $("#gameContent").hide(1000);
+      $("#gameOver").show(1500);
       clearInterval(timeInterval);
     } else if (newTimer === 5) {
       newTimer =0;
@@ -37,7 +37,7 @@ $(document).ready(function(){
 
     var arrayNum = 0;
     $("#score").text(score)
-    $("#timer").text(30)
+    $("#timer").text(5)
 
   var wordRandomize = function(){
     return Math.floor((Math.random() * levelArrays[arrayNum].length));
@@ -53,9 +53,9 @@ $(document).ready(function(){
     var wordCount = 0;
 
   $("#playButton").click(function(){
-    timer(30);
-    $("#playButton").hide();
-    $("#startOverButton").show();
+    timer(5);
+    $("#playButton").hide(1000);
+    $("#startOverButton").show(1500);
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
 
     var nextWord = (function(){ ///adds 1 to wordNum.

@@ -14,6 +14,8 @@ label{
   margin-top: 0px;
   text-align: center;
   margin-bottom: 0px;
+  background-color: inherit;
+  font-size: 100px;
 }
 .TimeTag{
   text-align: center;
@@ -28,7 +30,7 @@ label{
 }
 
 #gameContent {
-
+  transition: 0.1s ease-out;
 }
 #arrayTarget{
 font-size: 25px;
@@ -41,7 +43,7 @@ text-align: center;
 #gameOver {
     display: none;
     text-align: center;
-    background-color: black;
+    /*background-color: black;*/
 }
 #lose {
   font-size: 100px;
@@ -57,3 +59,9 @@ text-align: center;
 #startOverButton {
   display: none;
 }
+#playButton {
+  transition: 0.1s ease-out;
+}
+/*#startOverButton {
+  transition: 0.5s ease-in;
+}*/
