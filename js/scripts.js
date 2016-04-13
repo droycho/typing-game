@@ -33,9 +33,6 @@ var timer = function(time){
     } else if (time < 5 && time > 0){
       $("body").removeClass();
       $("body").addClass("bgChange6");
-    } else if (time === 0){
-      $("body").removeClass();
-      $("body").addClass("bgChange7");
     }
 
     if (time <= 0 ) {
