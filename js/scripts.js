@@ -53,8 +53,8 @@ var timeInterval = setInterval(function(){
     }
     if (time <= 0 ) {
       $("#timer").text("");
-      $("#gameContent").hide();
-      $("#gameOver").show();
+      $("#gameContent").hide(1000);
+      $("#gameOver").show(1100);
         audio.pause();
         gong.play();
         endsong.play();
@@ -72,8 +72,6 @@ var timeInterval = setInterval(function(){
   }, 100);
   }
 
-
-
 //score system
 var score = 0;
 
@@ -82,7 +80,7 @@ $(document).ready(function(){
   var score = 0
   var wordCount = 0;
   var arrayNum = 0;
-  $("#score").text(score)
+  $(".score").text(score)
   $("#timer").text(5)
 
   var wordRandomize = function(){
@@ -102,8 +100,8 @@ $(document).ready(function(){
   $("#playButton").click(function(){
 
     timer(300);
-    $("#playButton").hide();
-    $("#startOverButton").show();
+    $("#playButton").hide(500);
+    $("#startOverButton").show(1000);
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
 
     audio.loop = true;
@@ -138,11 +136,11 @@ $(document).ready(function(){
       //adds and subtracts to score.
       if (levelArrays[arrayNum][wordNum] === userInput){
        score += parseInt(levelArrays[arrayNum][wordNum].length);
-       $("#score").text(score);
+       $(".score").text(score);
        coin.play();
      } else if (levelArrays[arrayNum][wordNum] !== userInput) {
        score -= parseInt(levelArrays[arrayNum][wordNum].length);
-       $("#score").text(score);
+       $(".score").text(score);
        fail.play();
       }
 
