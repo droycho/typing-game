@@ -19,6 +19,7 @@ var gong = new Audio('sound/gong.mp3');
 
 //time
 var wordCount = 0;
+var arrayNum = 0;
 var newTimer = 0;
 var mode = "standardMode";
 var timer = function(time){
@@ -92,7 +93,6 @@ var score = 0;
 $(document).ready(function(){
   var score = 0
   var wordCount = 0;
-  var arrayNum = 0;
 
   $("#score").text(score)
   $("#timer").text(30)
@@ -128,12 +128,16 @@ $(document).ready(function(){
       wordNum = wordRandomize();
       wordCount ++;
       newTimer ++;
+      console.log(level7);
 
-      if (wordCount === 5 && arrayNum === levelArrays.length - 1 || mode === "infinityMode") {
-          mode = "infinityMode";
-          $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
-          timer(50);
-        }
+
+      if (levelArrays[arrayNum].length === 0) {
+        console.log("you won the game");
+      } else if (wordCount === 5 && arrayNum === levelArrays.length - 1 || mode === "infinityMode") {
+        mode = "infinityMode";
+        $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
+        timer(50);
+      }
 
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
     });
