@@ -9,105 +9,99 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-    <body class = "img/1.png">
+  <body class = "img/1.png">
 
-      <!-- loads and hides images so there is no pause in transition. -->
-      <div class = "hiddenImg">
-        <img src="img/1.png">
-        <img src="img/2.png">
-        <img src="img/3.png">
-        <img src="img/4.png">
-        <img src="img/5.png">
-        <img src="img/6.png">
+    <!-- loads and hides images so there is no pause in animation transition. -->
+    <div class = "hiddenImg">
+      <img src="img/1.png">
+      <img src="img/2.png">
+      <img src="img/3.png">
+      <img src="img/4.png">
+      <img src="img/5.png">
+      <img src="img/6.png">
+    </div>
+
+    <h1 class = "jumbotron">Typing Game</h1>
+    <div class ="container" id="gameContent">
+      <!-- hub of level, score and time -->
+      <div class = "row">
+        <div class = "col-xs-4">
+          <h5 class = "LevelTag">Level: <span id="level"></span></h5>
+        </div>
+        <div class = "col-xs-4">
+          <h5 class = "TimeTag">Time: <span id="timer"></span></h5>
+        </div>
+        <div class = "col-xs-4">
+          <h5 class = "ScoreTag">Score: <span id="score"></span></h5>
+        </div>
       </div>
-
-      <h1 class = "jumbotron">Typing Game</h1>
-      <div class ="container" id="gameContent">
-        <!-- hub of level, score and time -->
-        <div class = "row">
-          <div class = "col-xs-4">
-            <h5 class = "LevelTag">Level: <span id="level"></span></h5>
-          </div>
-          <div class = "col-xs-4">
-            <h5 class = "TimeTag">Time: <span id="timer"></span></h5>
-          </div>
-          <div class = "col-xs-4">
-            <h5 class = "ScoreTag">Score: <span id="score"></span></h5>
+      <br>
+      <br>
+      <div class = "row">
+        <div class = "col-md-10">
+          <!-- Word Output-->
+          <div id="computerOutput">
+            <label>Type this word:</label>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <center><p><span id="arrayTarget"></span></p></center>
           </div>
         </div>
-        <br>
-        <br>
-        <div class = "row">
-          <div class = "col-md-10">
-            <!-- Word Output-->
-            <div id="computerOutput">
-              <label>Type this word:</label>
+      </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+      <!-- Users Input -->
+      <div class = "row">
+        <div class = "col-md-12">
+          <form id="playerInputForm">
+            <div class="form-group">
               <br>
               <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <center><p><span id="arrayTarget"></span></p></center>
+              <input id="playerInput" type="text" class="form-control" placeholder="Type words here:">
             </div>
-          </div>
-        </div>
+            <div class = "button">
+            <button type="submit" class="btn btn-default">Submit</button>
+            </div>
 
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-
-        <!-- Users Input -->
-        <div class = "row">
-          <div class = "col-md-10">
-            <form id="playerInputForm">
-              <div class="form-group">
-                  <br>
-                  <br>
-                  <center><input id="playerInput" type="text" class="form-control" placeholder="Type words here:"></center>
-              </div>
-              <div class = "button">
-              <button type="submit" class="btn btn-default">Submit</button>
-              </div>
-
-            <!-- Timer button -->
-            </form>
-            <center><button type="button" class="btn btn-primary" id="playButton">Play</button></center> <!-- timer code line -->
-            <center><button type="button" class="btn btn-primary" onClick="history.go(0)" id="startOverButton">Start Over</button></center>
-          </div>
+          <!-- Timer button -->
+          </form>
+          <center><button type="button" class="btn btn-primary" id="playButton">Play</button></center> <!-- timer code line -->
+          <center><button type="button" class="btn btn-primary" onClick="history.go(0)" id="startOverButton">Start Over</button></center>
         </div>
       </div>
+    </div>
 
-      <div class="container" id="gameOver">
-        <br>
-        <br>
-        <br>
-        <p id="lose">You Lose</p>
-        <br>
-        <br>
-        <p id="over">Game Over</p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <form id="refreshButton">
-          <input type="button" onClick="history.go(0)" value="Play Again">
-        </form>
-        <br>
-        <br>
-        <br>
-        <br>
-      </div>
-    </body>
+    <div class="container" id="gameOver">
+      <br>
+      <br>
+      <br>
+      <p id="lose">You Lose</p>
+      <br>
+      <br>
+      <p id="over">Game Over</p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <form id="refreshButton">
+        <input type="button" onClick="history.go(0)" value="Play Again">
+      </form>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </body>
 </html>

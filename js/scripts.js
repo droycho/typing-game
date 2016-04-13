@@ -67,12 +67,13 @@ $(document).ready(function(){
     $("#level").text(levelNames[arrayNum])
   };
 
-  showLevel(); //show initial Level
+  showLevel() //show initial Level
 
   var wordNum = wordRandomize(); // randomize the word
 
 
   $("#playButton").click(function(){
+    $("#playerInput").focus();
     timer(30);
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
     var nextWord = (function(){ ///adds 1 to wordNum.
@@ -95,10 +96,10 @@ $(document).ready(function(){
       //adds and subtracts to score.
       if (levelArrays[arrayNum][wordNum] === userInput){
        score += parseInt(levelArrays[arrayNum][wordNum].length);
-       $("#score").text(score);
+       $("#score").text(score)
      } else if (levelArrays[arrayNum][wordNum] !== userInput) {
        score -= parseInt(levelArrays[arrayNum][wordNum].length);
-       $("#score").text(score);
+       $("#score").text(score)
       }
 
       if (levelArrays[arrayNum][wordNum] === userInput){ ///moves to next word in level
