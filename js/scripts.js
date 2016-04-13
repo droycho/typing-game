@@ -59,9 +59,6 @@ var score = 0;
 // user logic
 $(document).ready(function(){
 
-
-
-
     var arrayNum = 0;
     $("#score").text(score)
     $("#timer").text(30)
@@ -86,9 +83,6 @@ $(document).ready(function(){
 
     audio.loop = true;
     audio.play();
-
-
-
 
     var nextWord = (function(){ ///adds 1 to wordNum.
 
