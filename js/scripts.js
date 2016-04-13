@@ -76,10 +76,7 @@ $(document).ready(function(){
     var wordNum = wordRandomize(); // randomize the word
     var wordCount = 0;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> c13d8d51746ca70c1a39a0c073e83aaa59a7569e
   $("#playButton").click(function(){
     timer(30);
     $("#playButton").hide();
