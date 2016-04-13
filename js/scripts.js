@@ -14,24 +14,28 @@ var wordCount =0;
 var newTimer =0;
 var timer = function(time){
   var timeInterval = setInterval(function(){
-    if (time < 20 && time > 15){
+    // background change on timer
+    if (time < 30 && time > 25){
       $("body").removeClass();
-      $("body").fadeIn().addClass("bgChange");
+      $("body").addClass("bgChange");
+    } else if (time < 25 && time > 20){
+      $("body").removeClass();
+      $("body").addClass("bgChange2");
+    } else if (time < 20 && time > 15){
+      $("body").removeClass();
+      $("body").addClass("bgChange3");
     } else if (time < 15 && time > 10){
       $("body").removeClass();
-      $("body").fadeIn().addClass("bgChange2");
+      $("body").addClass("bgChange4");
     } else if (time < 10 && time > 5){
       $("body").removeClass();
-      $("body").fadeIn().addClass("bgChange3");
+      $("body").addClass("bgChange5");
     } else if (time < 5 && time > 0){
       $("body").removeClass();
-      $("body").fadeIn().addClass("bgChange4");
-    } else if (time < 30 && time > 20){
-      $("body").removeClass();
-      $("body").fadeIn().addClass("bgChange5");
+      $("body").addClass("bgChange6");
     } else if (time === 0){
       $("body").removeClass();
-      $("body").fadeIn().addClass("bgChange6");
+      $("body").addClass("bgChange7");
     }
 
     if (time <= 0 ) {

@@ -23,10 +23,10 @@ label{
 }
 .LevelTag{
   float: right;
-  color: green;
+  color:red;
 }
 .ScoreTag{
-  color: green;
+  color:red;
 }
 
 #gameContent {
@@ -65,25 +65,29 @@ label{
   float: inherit;
 }
 .bgChange{
-  background: url("../img/3.png") no-repeat center center fixed;
-  background-size: 100%;
+  background: url("../img/1.png") no-repeat center center fixed;
+  background-size: cover;
 }
 .bgChange2{
-  background: url("../img/4.png") no-repeat center center fixed;
-  background-size:100%;
+  background: url("../img/2.png") no-repeat center center fixed;
+  background-size:cover;
 }
 .bgChange3{
-  background: url("../img/6.png") no-repeat center center fixed;
-  background-size:100%;
+  background: url("../img/3.png") no-repeat center center fixed;
+  background-size:cover;
 }
 .bgChange4{
-  background: url("../img/6.png") no-repeat center center fixed;
-  background-size:100%;
+  background: url("../img/4.png") no-repeat center center fixed;
+  background-size:cover;
 }
 .bgChange5{
-  background: url("../img/1.png") no-repeat center center fixed;
-  background-size:100%;
+  background: url("../img/5.png") no-repeat center center fixed;
+  background-size:cover;
 }
 .bgChange6{
+  background: url("../img/6.png") no-repeat center center fixed;
+  background-size:cover;
+}
+.bgChange7{
 background-color: black;
 }
