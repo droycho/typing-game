@@ -57,7 +57,7 @@ $(document).ready(function(){
   var wordCount = 0;
   var arrayNum = 0;
   $("#score").text(score)
-  $("#timer").text(30)
+  $("#timer").text(5)
 
   var wordRandomize = function(){
     return Math.floor((Math.random() * levelArrays[arrayNum].length));
@@ -74,7 +74,7 @@ $(document).ready(function(){
 
   $("#playButton").click(function(){
     $("#playerInput").focus();
-    timer(30);
+    timer(5);
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
     var nextWord = (function(){ ///adds 1 to wordNum.
       levelArrays[arrayNum].splice(wordNum,1);
