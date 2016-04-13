@@ -27,20 +27,20 @@ var timeInterval = setInterval(function(){
   if (time >= 300){
       audio.playbackRate = 1;
     }
-    else if (time <250){
-        audio.playbackRate = 1.2;
+    else if (time <= 250 && time >= 200){
+        audio.playbackRate = 1.05;
       }
-      else if (time <200){
-          audio.playbackRate = 1.5;
+      else if (time <= 200 && time >= 150){
+          audio.playbackRate = 1.15;
         }
-        else if (time <150){
-            audio.playbackRate = 1.7;
+        else if (time <= 150 && time >= 100){
+            audio.playbackRate = 1.25;
           }
-          else if (time <100){
-              audio.playbackRate = 2.0;
+          else if (time <= 100 && time >= 50){
+              audio.playbackRate = 1.35;
             }
-            else if (time <50){
-                audio.playbackRate = 2.5;
+            else if (time <= 50 && time >= 0){
+                audio.playbackRate = 1.45;
               }
 
     // background change on timer
@@ -113,8 +113,6 @@ $(document).ready(function(){
 
   var wordNum = wordRandomize(); // randomize the word
 
-
-
   $("#playButton").click(function(){
     $("#playerInput").focus();
     timer(300);
@@ -161,6 +159,11 @@ $(document).ready(function(){
        $(".score").text(score);
        fail.play();
       }
+
+      $("#computerOutput").click(function(){
+        score -= 1;
+        $(".score").text(score);
+      })
 
       if (levelArrays[arrayNum][wordNum] === userInput){ ///moves to next word in level
         nextWord();
