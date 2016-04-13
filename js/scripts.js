@@ -36,8 +36,8 @@ var score = 0;
 $(document).ready(function(){
 
     var arrayNum = 0;
-    $("#score").text(score)
-    $("#timer").text(4)
+    $(".score").text(score)
+    $("#timer").text(5)
 
   var wordRandomize = function(){
     return Math.floor((Math.random() * levelArrays[arrayNum].length));
@@ -53,7 +53,7 @@ $(document).ready(function(){
     var wordCount = 0;
 
   $("#playButton").click(function(){
-    timer(4);
+    timer(5);
     $("#playButton").hide(500);
     $("#startOverButton").show(1000);
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
@@ -81,10 +81,10 @@ $(document).ready(function(){
       //adds and subtracts to score.
       if (levelArrays[arrayNum][wordNum] === userInput){
        score += parseInt(levelArrays[arrayNum][wordNum].length);
-       $("#score").text(score);
+       $(".score").text(score);
      } else if (levelArrays[arrayNum][wordNum] !== userInput) {
        score -= parseInt(levelArrays[arrayNum][wordNum].length);
-       $("#score").text(score);
+       $(".score").text(score);
       }
 
       console.log(userInput)
@@ -96,7 +96,8 @@ $(document).ready(function(){
         } else {
         $("input#playerInput").val("");
       }
-
+console.log(arrayNum);
+console.log(wordNum);
       if (wordCount === 5){ ///moves to next array in levelArrays // we changed it in a new condition
         timer(30);
         wordCount= 0;

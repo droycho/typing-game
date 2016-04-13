@@ -22,7 +22,7 @@
             <h5 class = "TimeTag">Time: <span id="timer"></span></h5>
           </div>
           <div class = "col-xs-4">
-            <h5 class = "ScoreTag">Score: <span id="score"></span></h5>
+            <h5 class = "ScoreTag">Score: <span class="score"></span></h5>
           </div>
         </div>
         <div class = "row">
@@ -68,7 +68,7 @@
           </div>
         </div>
       </div>
-
+<!-- game over screen -->
       <div class="container" id="gameOver">
         <br>
         <br>
@@ -79,6 +79,7 @@
         <p id="over">Game Over</p>
         <br>
         <br>
+        <h5 class = "ScoreTag">Your Score: <span class="score"></span></h5>
         <br>
         <br>
         <br>
@@ -91,5 +92,30 @@
         <br>
         <br>
       </div>
+
+<!-- victory screen -->
+<div class="container" id="victory">
+  <br>
+  <br>
+  <br>
+  <p id="win">You Win!</p>
+  <br>
+  <br>
+  <p id="congrats">Congratulations!</p>
+  <br>
+  <br>
+  <h5 class = "ScoreTag">Your Score: <span class="score"></span></h5>
+  <br>
+  <br>
+  <br>
+  <br>
+  <form id="refreshButton">
+    <input type="button" class="btn btn-primary btn-lg" onClick="history.go(0)" value="Play Again">
+  </form>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
     </body>
 </html>

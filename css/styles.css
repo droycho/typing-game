@@ -23,10 +23,10 @@ label{
 }
 .LevelTag{
   float: right;
-  color: green;
+  color: red;
 }
 .ScoreTag{
-  color: #f2d044;
+  color: red;
 }
 
 #gameContent {
@@ -45,9 +45,21 @@ text-align: center;
     text-align: center;
     transition: 0.1s ease-in;
 }
-#lose {
+#victory {
+  display: none;
+  text-align: center;
+}
+#win {
   font-size: 100px;
   color: red;
+}
+#congrats {
+  font-size: 80px;
+  color: white;
+}
+#lose {
+  font-size: 100px;
+  color: #B71B1B;
 }
 #over {
   font-size: 80px;
