@@ -28,6 +28,9 @@ label{
 .ScoreTag{
   color:red;
 }
+#scoreTag {
+  color: black;
+}
 #gameContent {
   transition: 0.1s ease-out;
 }
@@ -74,28 +77,32 @@ animation:
 .bgChange{
   background: url("../img/1.png") no-repeat center center fixed;
   background-size: cover;
-
+  transition: 2s ease;
 }
 .bgChange2{
   background: url("../img/2.png") no-repeat center center fixed;
   background-size:cover;
-  animation:
+  transition: 2s ease;
 }
 .bgChange3{
   background: url("../img/3.png") no-repeat center center fixed;
   background-size:cover;
+  transition: 2s ease;
 }
 .bgChange4{
   background: url("../img/4.png") no-repeat center center fixed;
   background-size:cover;
+  transition: 2s ease;
 }
 .bgChange5{
   background: url("../img/5.png") no-repeat center center fixed;
   background-size:cover;
+  transition: 2s ease;
 }
 .bgChange6{
   background: url("../img/6.png") no-repeat center center fixed;
   background-size:cover;
+  transition: 2s ease;
 }
 .hiddenImg{
   display: none;
