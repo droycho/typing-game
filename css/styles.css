@@ -2,6 +2,7 @@ body {
   font-family: 'Press Start 2P';
   background: url("../img/background.png") no-repeat center center fixed;
   background-size: cover;
+  color: #000;
 }
 label{
   font-size: 25px;
@@ -19,14 +20,14 @@ label{
 }
 .TimeTag{
   text-align: center;
-  color: red;
+  color: #B71B1B;
 }
 .LevelTag{
   float: right;
-  color:red;
+  color:#B71B1B;
 }
 .ScoreTag{
-  color:red;
+  color:#B71B1B;
 }
 #scoreTag {
   color: black;
@@ -51,10 +52,11 @@ animation:
 #victory {
   display: none;
   text-align: center;
+  transition: 0.1s ease-in;
 }
 #win {
   font-size: 100px;
-  color: red;
+  color: #B71B1B;
 }
 #congrats {
   font-size: 80px;
@@ -63,10 +65,18 @@ animation:
 #lose {
   font-size: 100px;
   color: #B71B1B;
+  /*for a gradient:*/
+  /*background: -webkit-linear-gradient(black, white);
+  -webkit-background-clip: text;
+  /*-webkit-text-fill-color: transparent;*/
 }
 #over {
   font-size: 80px;
   color: white;
+  /*for a gradient:*/
+  /*background: -webkit-linear-gradient(white, black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;*/
 }
 #refreshButton {
   font-size: 40px;
