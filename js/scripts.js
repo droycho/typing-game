@@ -92,7 +92,7 @@ var score = 0;
 $(document).ready(function(){
   var score = 0
   var wordCount = 0;
-  var arrayNum = 6;
+  var arrayNum = 0;
 
   $("#score").text(score)
   $("#timer").text(30)
