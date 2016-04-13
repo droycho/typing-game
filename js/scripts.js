@@ -116,7 +116,7 @@ $(document).ready(function(){
 
 
   $("#playButton").click(function(){
-
+    $("#playerInput").focus();
     timer(300);
     $("#playButton").hide(500);
     $("#startOverButton").show(1000);
