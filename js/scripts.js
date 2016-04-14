@@ -13,10 +13,9 @@ var levelNames = ["level 1","level 2","level 3","level 4","level 5","level 6","l
 var audio = new Audio('sound/loop.wav');
 var fail = new Audio('sound/explosion.wav');
 var coin = new Audio('sound/coin.wav');
-var levelup = new Audio('sound/levelup.wav');
+var levelup = new Audio('sound/levelclear.wav');
 var endsong = new Audio('sound/endsong.mp3');
 var gong = new Audio('sound/gong.mp3');
-
 //time
 var wordCount = 0;
 var arrayNum = 0;
@@ -134,6 +133,9 @@ $(document).ready(function(){
       if (levelArrays[arrayNum].length === 0) {
         $("#gameContent").hide();
         $("#victory").show().addClass("slideUp");
+        audio.pause();
+        gong.play();
+        endsong.play();
       } else if (wordCount === 5 && arrayNum === levelArrays.length - 1 || mode === "infinityMode") {
         mode = "infinityMode";
         $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
