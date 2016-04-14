@@ -93,7 +93,7 @@ $(document).ready(function(){
   var score = 0
   var wordCount = 0;
 
-  $("#score").text(score)
+  $(".score").text(score)
   $("#timer").text(30)
 
   var wordRandomize = function(){
@@ -114,7 +114,7 @@ $(document).ready(function(){
 
   $("#playButton").click(function(){
     $("#playerInput").focus();
-    timer(300);
+    timer(50);
     $("#playButton").hide(500);
     $("#startOverButton").show(1000);
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
