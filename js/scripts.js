@@ -11,11 +11,25 @@ var levelNames = ["level 1","level 2","level 3","level 4","level 5","level 6","l
 
 //music global variables
 var audio = new Audio('sound/loop.wav');
+  audio.volume = 0.3;
 var fail = new Audio('sound/explosion.wav');
+  fail.volume = 0.3;
 var coin = new Audio('sound/coin.wav');
+  coin.volume = 0.3;
 var levelup = new Audio('sound/levelclear.wav');
+  levelup.volume = 0.3;
 var endsong = new Audio('sound/endsong.mp3');
+  endsong.volume = 0.3;
 var gong = new Audio('sound/gong.mp3');
+  gong.volume = 0.3;
+var victory = new Audio('sound/victory.mp3');
+  victory.volume = 0.3;
+var start = new Audio('sound/start.wav');
+  start.volume = 0.3;
+var mamamia = new Audio('sound/mamamia.wav');
+  mamamia.volume = 0.3;
+var hoohoo = new Audio('sound/hoohoo.wav');
+  hoohoo.volume = 0.3;
 //time
 var wordCount = 0;
 var arrayNum = 0;
@@ -121,6 +135,7 @@ $(document).ready(function(){
 
     audio.loop = true;
     audio.play();
+    // start.play();
 
     var nextWord = (function(){ ///adds 1 to wordNum.
       levelArrays[arrayNum].splice(wordNum,1);
@@ -135,7 +150,7 @@ $(document).ready(function(){
         $("#victory").show().addClass("slideUp");
         audio.pause();
         gong.play();
-        endsong.play();
+        victory.play();
       } else if (wordCount === 5 && arrayNum === levelArrays.length - 1 || mode === "infinityMode") {
         mode = "infinityMode";
         $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
@@ -149,6 +164,7 @@ $(document).ready(function(){
       arrayNum ++;
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
         levelup.play();
+        // hoohoo.play();
     });
 
     $("form").submit(function(event){
@@ -165,6 +181,7 @@ $(document).ready(function(){
        score -= parseInt(levelArrays[arrayNum][wordNum].length);
        $(".score").text(score);
        fail.play();
+      //  mamamia.play();
       }
 
       $("#computerOutput").click(function(){
