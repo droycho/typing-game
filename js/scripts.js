@@ -115,7 +115,7 @@ $(document).ready(function(){
 
   $("#playButton").click(function(){
     $("#playerInput").focus();
-    timer(50);
+    timer(300);
     $("#playButton").hide(500);
     $("#startOverButton").show(1000);
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
@@ -132,11 +132,12 @@ $(document).ready(function(){
 
 
       if (levelArrays[arrayNum].length === 0) {
-        console.log("you won the game");
+        $("#gameContent").hide();
+        $("#victory").show().addClass("slideUp");
       } else if (wordCount === 5 && arrayNum === levelArrays.length - 1 || mode === "infinityMode") {
         mode = "infinityMode";
         $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
-        timer(50);
+        timer(100);
       }
 
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
