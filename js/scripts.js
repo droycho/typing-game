@@ -85,16 +85,10 @@ var timeInterval = setInterval(function(){
   }, 100);
   }
 
-//score system
-var score = 0;
-
 // user logic
 $(document).ready(function(){
   var score = 0
   var wordCount = 0;
-
-  $(".score").text(score)
-  $("#timer").text(30)
 
   var wordRandomize = function(){
     return Math.floor((Math.random() * levelArrays[arrayNum].length));
@@ -110,8 +104,17 @@ $(document).ready(function(){
     }
   };
 
-  showLevel(); //show initial Level
+  $(".score").text(score)//show initial score
+  $("#timer").text(30)//show initial timer
+  showLevel(); //show initial level
 
+  var nextArray = (function(){ ///adds 1 to arrayNum.
+    arrayNum ++;
+    $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
+      levelup.play();
+  });
+
+  //play button click
   $("#playButton").click(function(){
     $("#playerInput").focus();
     timer(300);
@@ -127,9 +130,6 @@ $(document).ready(function(){
       wordNum = wordRandomize();
       wordCount ++;
       newTimer ++;
-      console.log(level7);
-
-
       if (levelArrays[arrayNum].length === 0) {
         $("#gameContent").hide();
         $("#victory").show().addClass("slideUp");
@@ -141,20 +141,12 @@ $(document).ready(function(){
         $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
         timer(100);
       }
-
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
     });
 
-    var nextArray = (function(){ ///adds 1 to arrayNum.
-      arrayNum ++;
-      $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
-        levelup.play();
-    });
-
+    //"submit" when you hit enter after each word.
     $("form").submit(function(event){
-
       event.preventDefault();
-
       var userInput = $("input#playerInput").val();
       //adds and subtracts to score.
       if (levelArrays[arrayNum][wordNum] === userInput){
@@ -166,7 +158,7 @@ $(document).ready(function(){
        $(".score").text(score);
        fail.play();
       }
-
+      //stops user from copy pasting
       $("#computerOutput").click(function(){
         score -= 1;
         $(".score").text(score);
@@ -184,7 +176,7 @@ $(document).ready(function(){
         $("#LevelUp").text(levelNames[arrayNum])
       }
 
-      showLevel();
+      showLevel();//show current player level
 
     });
   });
