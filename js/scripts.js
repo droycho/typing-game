@@ -19,6 +19,7 @@ var gong = new Audio('sound/gong.mp3');
 
 //time
 var wordCount = 0;
+var arrayNum = 0;
 var newTimer = 0;
 var mode = "standardMode";
 var timer = function(time){
@@ -66,8 +67,8 @@ var timeInterval = setInterval(function(){
 
     if (time <= 0) {
       $("#timer").text("");
-      $("#gameContent").hide(1000);
-      $("#gameOver").show(1100);
+      $("#gameContent").hide();
+      $("#gameOver").show().addClass("slideUp");
         audio.pause();
         gong.play();
         endsong.play();
@@ -92,7 +93,6 @@ var score = 0;
 $(document).ready(function(){
   var score = 0
   var wordCount = 0;
-  var arrayNum = 0;
 
   $("#score").text(score)
   $("#timer").text(30)
@@ -104,7 +104,11 @@ $(document).ready(function(){
   var wordNum = wordRandomize(); // randomize the word
 
   var showLevel = function(){
-  $("#level").text(levelNames[arrayNum])
+    if (mode != "infinityMode"){
+      $("#level").text(levelNames[arrayNum])
+    } else if (mode === "infinityMode") {
+      $("#level").text("Infinity Mode");
+    }
   };
 
   showLevel(); //show initial Level
@@ -112,7 +116,7 @@ $(document).ready(function(){
 
   $("#playButton").click(function(){
     $("#playerInput").focus();
-    timer(300);
+    timer(50);
     $("#playButton").hide(500);
     $("#startOverButton").show(1000);
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
@@ -125,12 +129,16 @@ $(document).ready(function(){
       wordNum = wordRandomize();
       wordCount ++;
       newTimer ++;
+      console.log(level7);
 
-      if (wordCount === 5 && arrayNum === levelArrays.length - 1 || mode === "infinityMode") {
-          mode = "infinityMode";
-          $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
-          timer(50);
-        }
+
+      if (levelArrays[arrayNum].length === 0) {
+        console.log("you won the game");
+      } else if (wordCount === 5 && arrayNum === levelArrays.length - 1 || mode === "infinityMode") {
+        mode = "infinityMode";
+        $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
+        timer(50);
+      }
 
       $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
     });
