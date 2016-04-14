@@ -101,13 +101,14 @@ $(document).ready(function(){
     return Math.floor((Math.random() * levelArrays[arrayNum].length));
   };
 
+  var wordNum = wordRandomize(); // randomize the word
+
   var showLevel = function(){
-    $("#level").text(levelNames[arrayNum])
+  $("#level").text(levelNames[arrayNum])
   };
 
-  showLevel() //show initial Level
+  showLevel(); //show initial Level
 
-  var wordNum = wordRandomize(); // randomize the word
 
   $("#playButton").click(function(){
     $("#playerInput").focus();
@@ -170,6 +171,7 @@ $(document).ready(function(){
         timer(300);
         wordCount= 0;
         nextArray();
+
       }
 
       showLevel();
