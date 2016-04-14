@@ -28,15 +28,6 @@ label{
   float: right;
   color:#B71B1B;
 }
-@keyframes levelUp {
-  from {font-size: .83em; opacity: 100%; color: #B71B1B;}
-  to {font-size: 25px; opacity: 0%; color: gold;}
-}
-.LevelUp{
-  animation-name: levelUp;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-}
 .ScoreTag{
   color:#B71B1B;
 }
@@ -56,7 +47,7 @@ animation:
   border-top: 0px;
 }
 .nocursor {
-  -webkit-touch-callout: none;
+ -webkit-touch-callout: none;
  -webkit-user-select: none;
  -khtml-user-select: none;
  -moz-user-select: none;

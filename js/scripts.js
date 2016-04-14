@@ -113,7 +113,6 @@ $(document).ready(function(){
 
   showLevel(); //show initial Level
 
-
   $("#playButton").click(function(){
     $("#playerInput").focus();
     timer(300);
@@ -179,7 +178,7 @@ $(document).ready(function(){
         timer(300);
         wordCount= 0;
         nextArray();
-
+        $("#LevelUp").text(levelNames[arrayNum])
       }
 
       showLevel();
