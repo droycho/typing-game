@@ -107,7 +107,7 @@ $(document).ready(function(){
   var score = 0
   var wordCount = 0;
 
-  $("#score").text(score)
+  $(".score").text(score)
   $("#timer").text(30)
 
   var wordRandomize = function(){

@@ -19,17 +19,21 @@ label{
   margin-bottom: 0px;
   background-color: inherit;
   font-size: 100px;
+  text-shadow: -1px 2px 10px black;
 }
 .TimeTag{
   text-align: center;
   color: #B71B1B;
+  text-shadow: -1px 1px 1px #871010;
 }
 .LevelTag{
   float: right;
   color:#B71B1B;
+  text-shadow: -1px 1px 1px #871010;
 }
 .ScoreTag{
   color:#B71B1B;
+  text-shadow: -1px 1px 1px #871010;
 }
 #scoreTag {
   color: black;
@@ -38,33 +42,35 @@ label{
   transition: 0.1s ease-out;
 }
 #arrayTarget{
-font-size: 25px;
-text-align: center;
-animation:
+  font-size: 25px;
+  text-align: center;
+  animation:
 }
 #playerInput{
   border: 0px;
   border-top: 0px;
 }
 .nocursor {
- -webkit-touch-callout: none;
- -webkit-user-select: none;
- -khtml-user-select: none;
- -moz-user-select: none;
- -ms-user-select: none;
- user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
  }
 #gameOver {
-    display: none;
-    text-align: center;
-    visibility: hidden;
-    animation-duration: 7s;
+  display: none;
+  text-align: center;
+  visibility: hidden;
+  animation-duration: 7s;
+  text-shadow: -1px 2px 10px #871010;
 }
 #victory {
   display: none;
   text-align: center;
   visibility: hidden;
   animation-duration: 7s;
+  text-shadow: -1px 2px 10px #871010;
 }
 #win {
   font-size: 100px;
