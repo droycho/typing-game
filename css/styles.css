@@ -58,12 +58,13 @@ animation:
     display: none;
     text-align: center;
     visibility: hidden;
-    animation-duration: 5s;
+    animation-duration: 7s;
 }
 #victory {
   display: none;
   text-align: center;
-  transition: 0.1s ease-in;
+  visibility: hidden;
+  animation-duration: 7s;
 }
 #win {
   font-size: 100px;
