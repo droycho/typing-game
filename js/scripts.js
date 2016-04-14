@@ -167,14 +167,12 @@ $(document).ready(function(){
       //adds and subtracts to score.
       if (levelArrays[arrayNum][wordNum] === userInput){
        score += parseInt(levelArrays[arrayNum][wordNum].length);
-       $(".score").text(score);
        coin.play();
      } else if (levelArrays[arrayNum][wordNum] !== userInput) {
        score -= parseInt(levelArrays[arrayNum][wordNum].length);
-       $(".score").text(score);
        fail.play();
       //  mamamia.play();
-      }
+      } $(".score").text(score);
       //stops user from copy pasting
       $("#computerOutput").click(function(){
         score -= 1;
