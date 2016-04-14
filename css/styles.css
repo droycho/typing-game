@@ -55,7 +55,8 @@ animation:
 #gameOver {
     display: none;
     text-align: center;
-    transition: 0.1s ease-in;
+    visibility: hidden;
+    animation-duration: 5s;
 }
 #victory {
   display: none;

@@ -67,8 +67,8 @@ var timeInterval = setInterval(function(){
 
     if (time <= 0) {
       $("#timer").text("");
-      $("#gameContent").hide(1000);
-      $("#gameOver").show(1100);
+      $("#gameContent").hide();
+      $("#gameOver").show().addClass("slideUp");
         audio.pause();
         gong.play();
         endsong.play();
@@ -115,7 +115,7 @@ $(document).ready(function(){
 
   $("#playButton").click(function(){
     $("#playerInput").focus();
-    timer(300);
+    timer(50);
     $("#playButton").hide(500);
     $("#startOverButton").show(1000);
     $("#arrayTarget").text(levelArrays[arrayNum][wordNum]); ///initial word.
