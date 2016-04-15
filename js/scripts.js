@@ -10,26 +10,27 @@ var levelArrays = [level1,level2,level3,level4,level5,level6,level7];
 var levelNames = ["level 1","level 2","level 3","level 4","level 5","level 6","level 7"]
 
 //music global variables
+
 var audio = new Audio('sound/loop.wav');
-  audio.volume = 0.3;
+  audio.volume = 0.5;
 var fail = new Audio('sound/explosion.wav');
-  fail.volume = 0.3;
+  fail.volume = 0.5;
 var coin = new Audio('sound/coin.wav');
-  coin.volume = 0.3;
+  coin.volume = 0.5;
 var levelup = new Audio('sound/levelclear.wav');
-  levelup.volume = 0.3;
+  levelup.volume = 0.5;
 var endsong = new Audio('sound/endsong.mp3');
-  endsong.volume = 0.3;
+  endsong.volume = 0.5;
 var gong = new Audio('sound/gong.mp3');
-  gong.volume = 0.3;
+  gong.volume = 0.5;
 var victory = new Audio('sound/victory.mp3');
-  victory.volume = 0.3;
+  victory.volume = 0.5;
 var start = new Audio('sound/start.wav');
-  start.volume = 0.3;
+  start.volume = 0.5;
 var mamamia = new Audio('sound/mamamia.wav');
-  mamamia.volume = 0.3;
+  mamamia.volume = 0.5;
 var hoohoo = new Audio('sound/hoohoo.wav');
-  hoohoo.volume = 0.3;
+  hoohoo.volume = 0.5;
 //time
 var wordCount = 0;
 var arrayNum = 0;
@@ -89,7 +90,7 @@ var timeInterval = setInterval(function(){
     } else if (newTimer === 5) {
       newTimer = 0;
       clearInterval(timeInterval);
-    } else if (newTimer === 1 && mode === "infinityMode") {
+    } else if (newTimer === 1 && mode === "Final Round") {
       newTimer = 0;
       clearInterval(timeInterval);
     } else {
@@ -111,10 +112,10 @@ $(document).ready(function(){
   var wordNum = wordRandomize(); // randomize the word
 
   var showLevel = function(){
-    if (mode != "infinityMode"){
+    if (mode != "Final Round"){
       $("#level").text(levelNames[arrayNum])
-    } else if (mode === "infinityMode") {
-      $("#level").text("Infinity Mode");
+    } else if (mode === "Final Round") {
+      $("#level").text("Final Round");
     }
   };
 
@@ -152,8 +153,8 @@ $(document).ready(function(){
         audio.pause();
         gong.play();
         victory.play();
-      } else if (wordCount === 5 && arrayNum === levelArrays.length - 1 || mode === "infinityMode") {
-        mode = "infinityMode";
+      } else if (wordCount === 5 && arrayNum === levelArrays.length - 1 || mode === "Final Round") {
+        mode = "Final Round";
         $("#arrayTarget").text(levelArrays[arrayNum][wordNum]);
         timer(100);
       }
