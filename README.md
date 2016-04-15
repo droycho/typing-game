@@ -13,7 +13,7 @@ _{This webpage is a basic typing game with increasing difficulty. When the user 
 * Click this link: http://droycho.github.io/typing-game/ 
 * OR you can clone this repository to you desktop, then open the hmtl.
 * There is a sound element to the game, so volume control and headphones may be required from the user's end.
-* There are Mario themed voice files that trigger on certain actions. These have been commented out in the CSS and can be commented back in if you'd like.
+* There are Mario themed voice files that trigger on certain actions. These have been commented out in the JavaScript and can be commented back in if you'd like.
 
 
 ## Known Bugs
